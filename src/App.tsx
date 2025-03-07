@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/Header.tsx";
+import Quiz from "./pages/Quiz.tsx";
+import Main from "./pages/Main.tsx";
+import Map from "./components/RecycleMap.tsx";
+import Recommendations from "./pages/Reccomendations.tsx";
+import "./App.css";
+import { motion } from "framer-motion";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <Main />
+      <Quiz />
+      <Map />
+      <motion.div
+        className="bg-gradient-to-b from-white via-green-100 to-white mt-5 h-96"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1 }} // анимация при появлении в области видимости
+        viewport={{ once: true, amount: 0.5 }} // анимация срабатывает, когда 50% элемента видно
+      ></motion.div>
+      <Recommendations />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
