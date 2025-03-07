@@ -301,7 +301,7 @@ function Quiz() {
                 </div>
               </div>
 
-              <p className="question text-lg md:text-xl font-bold text-gray-800 mb-6 md:mb-8 text-center h-[56px]" >
+              <p className="question text-lg md:text-xl font-bold text-gray-800 mb-6 md:mb-8 text-center h-[56px]">
                 {questions[currentQuestionIndex].question}
               </p>
 

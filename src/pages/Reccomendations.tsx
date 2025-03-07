@@ -158,7 +158,6 @@ const Recommendations: React.FC = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      
       className="w-full bg-gradient-to-b from-white via-green-50 to-green-100 py-8 pb- px-4"
       id="reccomendations"
     >

@@ -1,30 +1,30 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const InfoSection: React.FC = () => {
   const facts = [
     {
-      stat: '8 млн тонн',
-      description: 'пластика попадает в океаны ежегодно'
+      stat: "8 млн тонн",
+      description: "пластика попадает в океаны ежегодно",
     },
     {
-      stat: '1 тонна',
-      description: 'переработанной макулатуры спасает 17 деревьев'
+      stat: "1 тонна",
+      description: "переработанной макулатуры спасает 17 деревьев",
     },
     {
-      stat: '34%',
-      description: 'всех отходов в России можно переработать'
+      stat: "34%",
+      description: "всех отходов в России можно переработать",
     },
     {
-      stat: '450 лет',
-      description: 'срок разложения пластиковой бутылки в природе'
-    }
+      stat: "450 лет",
+      description: "срок разложения пластиковой бутылки в природе",
+    },
   ];
 
   return (
     <div className="w-full bg-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -42,12 +42,14 @@ const InfoSection: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-green-50 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow"
             >
-              <h3 className="text-3xl font-bold text-green-600 mb-2">{fact.stat}</h3>
+              <h3 className="text-3xl font-bold text-green-600 mb-2">
+                {fact.stat}
+              </h3>
               <p className="text-gray-700">{fact.description}</p>
             </motion.div>
           ))}
         </div>
-        
+
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
