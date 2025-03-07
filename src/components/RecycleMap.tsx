@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // Объявление свойства ymaps для объекта window
 declare global {
@@ -64,31 +64,48 @@ const recyclePoints = [
   }
 ];
 
-// Функция загрузки API
-const loadYandexMapsApi = (): Promise<void> => {
+// Функция загрузки API с повторными попытками
+const loadYandexMapsApi = (retries = 3): Promise<void> => {
   return new Promise((resolve, reject) => {
     if (window.ymaps) {
       resolve();
       return;
     }
     
-    const script = document.createElement("script");
-    script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("Не удалось загрузить API Яндекс.Карт"));
-    document.head.appendChild(script);
+    const tryLoad = (attemptNumber: number) => {
+      const script = document.createElement("script");
+      script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
+      script.async = true;
+      
+      script.onload = () => resolve();
+      script.onerror = () => {
+        if (attemptNumber < retries) {
+          setTimeout(() => tryLoad(attemptNumber + 1), 1000);
+        } else {
+          reject(new Error("Не удалось загрузить API Яндекс.Карт"));
+        }
+      };
+      
+      document.head.appendChild(script);
+    };
+    
+    tryLoad(1);
   });
 };
 
 const RecycleMap: React.FC = () => {
   const mapRef = useRef<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
     
     const initMap = async () => {
       try {
+        setIsLoading(true);
+        setError(null);
+        
         await loadYandexMapsApi();
         
         if (!isMounted) return;
@@ -97,7 +114,7 @@ const RecycleMap: React.FC = () => {
         
         // Создание экземпляра карты
         mapRef.current = new window.ymaps.Map(MAP_CONTAINER_ID, {
-          center: [50.590313, 36.587272], // Белгород
+          center: [50.590313, 36.587272],
           zoom: 12,
           controls: ["zoomControl", "geolocationControl"],
         });
@@ -125,14 +142,19 @@ const RecycleMap: React.FC = () => {
           
           mapRef.current.geoObjects.add(placemark);
         });
+        
+        setIsLoading(false);
       } catch (error) {
-        console.error("Ошибка инициализации карты:", error);
+        if (isMounted) {
+          console.error("Ошибка инициализации карты:", error);
+          setError("Не удалось загрузить карту. Пожалуйста, обновите страницу.");
+          setIsLoading(false);
+        }
       }
     };
     
     initMap();
     
-    // Очистка
     return () => {
       isMounted = false;
       if (mapRef.current) {
@@ -147,10 +169,22 @@ const RecycleMap: React.FC = () => {
       <h2 className="text-center text-2xl font-bold text-green-700 mb-5">
         Пункты переработки в Белгороде
       </h2>
-      <div
-        id={MAP_CONTAINER_ID}
-        className="h-[600px] w-full rounded-lg border border-gray-200"
-      ></div>
+      <div className="relative">
+        <div
+          id={MAP_CONTAINER_ID}
+          className="h-[600px] w-full rounded-lg border border-gray-200"
+        ></div>
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75">
+            <div className="text-green-700">Загрузка карты...</div>
+          </div>
+        )}
+        {error && (
+          <div className="absolute inset-0 flex items-center justify-center bg-red-50">
+            <div className="text-red-600 p-4 text-center">{error}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
