@@ -182,7 +182,7 @@ function Quiz() {
 
     return (
         <>
-            <div id='quiz' className="quiz-main w-full min-h-[80vh] bg-gradient-to-b from-green-50 to-green-100 flex flex-col items-center justify-center p-4 md:p-20">
+            <div id='quiz' className="quiz-main w-full min-h-[80vh] bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col items-center justify-center p-4 md:p-20">
                 <motion.div 
                 
                     className="max-w-3xl w-full bg-white rounded-2xl shadow-lg overflow-hidden"

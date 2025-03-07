@@ -165,7 +165,7 @@ const RecycleMap: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full max-w-6xl h-[90vh] mx-auto p-5 rounded-lg bg-gray-50 shadow-lg">
+    <div className="flex flex-col w-full max-w-6xl h-[90vh] mx-auto p-5 rounded-lg  shadow-lg">
       <h2 className="text-center text-2xl md:text-3xl font-bold text-green-700 mb-5">Пункты переработки в Белгороде</h2>
       
       {loading && (

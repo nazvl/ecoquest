@@ -89,8 +89,8 @@ const Recommendations: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4" id="reccomendations">
-      <div className="bg-white p-6 rounded-lg">
+    <div className="w-full bg-gradient-to-b from-white to-green-100 py-8 px-4" id="reccomendations">
+      <div className="bg-white p-6 rounded-lg w-full max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
           Советы по экологии
         </h1>
