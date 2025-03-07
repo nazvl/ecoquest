@@ -14,7 +14,7 @@ function App() {
       <Main />
       <Quiz />
       <Map />
-    {/* <motion.div
+      {/* <motion.div
       className="bg-gradient-to-b from-white via-green-200 to-white mt-5 h-48 "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

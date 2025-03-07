@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { scrollToSection } from "../utils/scrollHelper";
 
 export default function Main() {
-
   return (
     <>
       <motion.div

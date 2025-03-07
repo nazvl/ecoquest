@@ -12,7 +12,10 @@ function Header() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-row gap-5"
         >
-          <div className="flex items-center gap-3 hover: cursor-pointer" onClick={() => scrollToSection('main')}>
+          <div
+            className="flex items-center gap-3 hover: cursor-pointer"
+            onClick={() => scrollToSection("main")}
+          >
             <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-green-500 font-sans">
               EcoQuest
             </h1>
@@ -33,15 +36,19 @@ function Header() {
             className="flex flex-row gap-6 list-none text-lg font-medium font-sans"
           >
             <motion.li className="cursor-pointer text-gray-700 hover:text-green-600 transition-all duration-200 relative">
-              <span onClick={() => scrollToSection('quiz')}>Quiz</span>
+              <span onClick={() => scrollToSection("quiz")}>Quiz</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
             </motion.li>
             <motion.li className="cursor-pointer text-gray-700 hover:text-green-600 transition-all duration-200 relative">
-              <span onClick={() => scrollToSection('map')}>Карта переработки</span>
+              <span onClick={() => scrollToSection("map")}>
+                Карта переработки
+              </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
             </motion.li>
             <motion.li className="cursor-pointer text-gray-700 hover:text-green-600 transition-all duration-200 relative">
-              <span onClick={() => scrollToSection('reccomendations')}>Полезные советы</span>
+              <span onClick={() => scrollToSection("reccomendations")}>
+                Полезные советы
+              </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
             </motion.li>
           </motion.ul>

@@ -1,54 +1,60 @@
-# React + TypeScript + Vite
+# EcoQuest 🌿
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EcoQuest - это интерактивный веб-проект, посвященный экологическому образованию и повышению осведомленности о защите окружающей среды.
 
-Currently, two official plugins are available:
+![EcoQuest Screenshot](src/assets/eco-earth.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Функционал
 
-## Expanding the ESLint configuration
+### 1. Главная страница
+- Привлекательный лендинг с анимированными элементами
+- Навигация к различным разделам сайта
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 2. Экологический квиз
+- Интерактивный тест из 15 вопросов (возможность расширить) по экологической тематике
+- Мгновенная обратная связь по ответам
+- Результаты с рекомендациями после завершения
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 3. Карта пунктов переработки
+- Интерактивная карта на основе Яндекс.Карт
+- Отображение пунктов переработки в г. Белгород
+- Возможность поиска ближайших пунктов приема вторсырья
+- Информация о типах принимаемых материалов
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 4. Полезные рекомендации
+- Практические советы по экологичному образу жизни
+- Рекомендации в различных категориях (энергосбережение, экономия воды и др.)
+- Информация о том, как каждый может внести свой вклад в защиту планеты
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📱 Как пользоваться
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. **Навигация**
+   - Используйте шапку сайта для перемещения между разделами
+   - Нажимайте на соответствующие кнопки для плавной прокрутки к нужным секциям
+
+2. **Прохождение квиза**
+   - Нажмите на кнопку "Начать квест" на главной странице
+   - Выберите ответ на каждый вопрос
+   - После завершения увидите свой результат и рекомендации
+
+3. **Использование карты**
+   - На карте отмечены пункты приема вторсырья
+   - Нажмите на метку, чтобы увидеть информацию о пункте
+   - Используйте кнопку "Найти пункты переработки" для обновления данных
+   - Воспользуйтесь поиском для нахождения ближайших пунктов
+
+4. **Изучение рекомендаций**
+   - Ознакомьтесь с советами по различным категориям
+   - Применяйте полученные знания в повседневной жизни
+
+## 🛠️ Технологии
+
+- **Frontend**: React 19, TypeScript
+- **Стилизация**: TailwindCSS 4
+- **Анимации**: Framer Motion
+- **Сборка**: Vite 6
+- **Карты**: Yandex Maps API
+- **UI компоненты**: 
+  - Material UI
+  - React Icons
+- **Линтинг**: ESLint
