@@ -3,6 +3,7 @@ import Quiz from "./pages/Quiz.tsx";
 import Main from "./pages/Main.tsx";
 import Map from "./components/RecycleMap.tsx";
 import Recommendations from "./pages/Reccomendations.tsx";
+import Footer from "./components/Footer.tsx";
 import "./App.css";
 // import { motion } from "framer-motion";
 
@@ -22,6 +23,7 @@ function App() {
       viewport={{ once: false, amount: 0.5 }} // анимация срабатывает, когда 50% элемента видно
     ></motion.div> */}
       <Recommendations />
+      <Footer />
     </>
   );
 }

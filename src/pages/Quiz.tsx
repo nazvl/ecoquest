@@ -12,7 +12,7 @@ function Quiz() {
     
     const questions = [
         {
-            question: "Какой вид транспорта экологичнее?",
+            question: "Какой вид транспорта экологичне?",
             answers: [
                 { text: "Самолет", isCorrect: false },
                 { text: "Автобус", isCorrect: false },
