@@ -156,7 +156,7 @@ const Recommendations: React.FC = () => {
 
   return (
     <div
-      className="w-full bg-gradient-to-b from-white to-green-100 py-8 px-4"
+      className="w-full bg-gradient-to-b from-white via-green-50 to-green-100 py-8 pb- px-4"
       id="reccomendations"
     >
       <div className="bg-white p-6 rounded-lg w-full max-w-7xl mx-auto">
