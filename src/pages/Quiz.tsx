@@ -182,42 +182,44 @@ function Quiz() {
 
     return (
         <>
-            <div id='quiz' className="quiz-main w-full min-h-[80vh] bg-gradient-to-b from-green-50 to-green-100 flex flex-col items-center justify-center p-20 px-4">
+            <div id='quiz' className="quiz-main w-full min-h-[80vh] bg-gradient-to-b from-green-50 to-green-100 flex flex-col items-center justify-center p-4 md:p-20">
                 <motion.div 
+                
                     className="max-w-3xl w-full bg-white rounded-2xl shadow-lg overflow-hidden"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: false, amount: 0.5 }}
                 >
                     <div className="bg-green-600 py-4 px-6">
-                        <h1 className="text-2xl font-bold text-white text-center">
-                            Экологический квиз <RecyclingIcon className="inline-block w-6 h-6" />
+                        <h1 className="text-xl md:text-2xl font-bold text-white text-center">
+                            Экологический квиз <RecyclingIcon className="inline-block w-5 h-5 md:w-6 md:h-6" />
                         </h1>
                     </div>
                 
                     {quizCompleted ? (
-                        <div className="results-container flex flex-col items-center p-8 gap-6">
-                            <div className="w-32 h-32 rounded-full bg-green-100 flex items-center justify-center border-4 border-green-500">
-                                <span className="text-3xl font-bold text-green-700">{score}/{questions.length}</span>
+                        <div className="results-container flex flex-col items-center p-4 md:p-8 gap-4 md:gap-6">
+                            <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-green-100 flex items-center justify-center border-4 border-green-500">
+                                <span className="text-2xl md:text-3xl font-bold text-green-700">{score}/{questions.length}</span>
                             </div>
                             
-                            <h2 className="text-2xl font-bold text-green-800">
+                            <h2 className="text-xl md:text-2xl font-bold text-green-800">
                                 Квиз завершен!
                             </h2>
                             
                             {score < questions.length / 2 ? (
                                 <div className="text-center">
-                                    <p className="text-lg text-red-600 mb-3">Узнайте больше о защите окружающей среды и попробуйте снова!</p>
-                                    <p><span href="reccomendations" onClick={() => scrollToSection('reccomendations')} className='text-blue-500 underline hover:text-blue-700 transition-colors cursor-pointer'>Ознакомиться с советами</span></p>
+                                    <p className="text-base md:text-lg text-red-600 mb-3">Узнайте больше о защите окружающей среды и попробуйте снова!</p>
+                                    <p><span onClick={() => scrollToSection('reccomendations')} className='text-blue-500 underline hover:text-blue-700 transition-colors cursor-pointer'>Ознакомиться с советами</span></p>
                                 </div>
                             ) : (
-                                <p className="text-lg text-green-600 text-center">
+                                <p className="text-base md:text-lg text-green-600 text-center">
                                     Отличный результат! Продолжайте в том же духе!
                                 </p>
                             )}
                             
                             <motion.button 
-                                className="mt-6 bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                                className="mt-4 md:mt-6 bg-green-500 hover:bg-green-600 text-white py-2 md:py-3 px-6 md:px-8 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-200"
                                 onClick={() => {
                                     setCurrentQuestionIndex(0);
                                     setScore(0);
@@ -231,15 +233,15 @@ function Quiz() {
                         </div>
                     ) : (
                         <motion.div 
-                            className="question-container flex flex-col items-center p-8"
+                            className="question-container flex flex-col items-center p-4 md:p-8"
                             key={currentQuestionIndex}
                             variants={simpleVariants}
                             initial="hidden"
                             animate="visible"
                         >
-                            <div className="w-full mb-6 flex justify-between items-center">
-                                <span className="text-sm font-medium text-gray-500">Вопрос {currentQuestionIndex + 1} из {questions.length}</span>
-                                <div className="w-24 h-2 bg-gray-200 rounded-full">
+                            <div className="w-full mb-4 md:mb-6 flex justify-between items-center">
+                                <span className="text-xs md:text-sm font-medium text-gray-500">Вопрос {currentQuestionIndex + 1} из {questions.length}</span>
+                                <div className="w-16 md:w-24 h-2 bg-gray-200 rounded-full ml-2">
                                     <div 
                                         className="h-full bg-green-500 rounded-full transition-all duration-300"
                                         style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
@@ -247,16 +249,16 @@ function Quiz() {
                                 </div>
                             </div>
                             
-                            <p className="question text-xl font-bold text-gray-800 mb-8 text-center">
+                            <p className="question text-lg md:text-xl font-bold text-gray-800 mb-6 md:mb-8 text-center">
                                 {questions[currentQuestionIndex].question}
                             </p>
                             
-                            <div className="answers flex flex-col items-center gap-3 w-full max-w-lg">
+                            <div className="answers flex flex-col items-center gap-2 md:gap-3 w-full max-w-lg">
                                 {questions[currentQuestionIndex].answers.map((answer, index) => (
                                     <button
                                         key={index}
                                         disabled={isAnimating}
-                                        className={`answer-btn text-lg p-4 m-1 rounded-xl w-full transition-all duration-200 border-2 flex justify-between items-center ${
+                                        className={`answer-btn text-base md:text-lg p-3 md:p-4 m-1 rounded-xl w-full transition-all duration-200 border-2 flex justify-between items-center ${
                                             selectedAnswer === index
                                                 ? answer.isCorrect
                                                     ? 'bg-green-100 border-green-500 text-green-700'
@@ -267,7 +269,7 @@ function Quiz() {
                                     >
                                         <span>{answer.text}</span>
                                         {selectedAnswer === index && (
-                                            <span className={`text-xl ${answer.isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                                            <span className={`text-lg md:text-xl ${answer.isCorrect ? 'text-green-600' : 'text-red-600'}`}>
                                                 {answer.isCorrect ? '✓' : '✗'}
                                             </span>
                                         )}

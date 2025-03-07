@@ -13,14 +13,14 @@ function App() {
       <Main />
       <Quiz />
       <Map />
-      <motion.div
-        className="bg-gradient-to-b from-white via-green-100 to-white mt-5 h-96"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        whileInView={{ opacity: 1 }} // анимация при появлении в области видимости
-        viewport={{ once: true, amount: 0.5 }} // анимация срабатывает, когда 50% элемента видно
-      ></motion.div>
+    <motion.div
+      className="bg-gradient-to-b from-white via-green-200 to-white mt-5 h-48 "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      whileInView={{ scale: 1, opacity: 1 }} // анимация при появлении в области видимости
+      viewport={{ once: false, amount: 0.5 }} // анимация срабатывает, когда 50% элемента видно
+    ></motion.div>
       <Recommendations />
     </>
   );

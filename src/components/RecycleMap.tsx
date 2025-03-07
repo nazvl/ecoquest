@@ -1,5 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+// Declare the ymaps property on the window object
+declare global {
+  interface Window {
+    ymaps: any;
+  }
+}
+
 // Use a reference ID for the map container
 const MAP_CONTAINER_ID = 'map';
 
@@ -55,9 +62,6 @@ const RecycleMap: React.FC = () => {
               map.geoObjects.removeAll();
               
               // Create search request for recycling points
-              const recyclingSearch = new window.ymaps.GeoObjectCollection(null, {
-                preset: 'islands#greenIcon' 
-              });
               
               // Perform search for recycling points using Yandex search API
               window.ymaps.geocode('Приём и скупка вторсырья Белгород', {
@@ -167,7 +171,7 @@ const RecycleMap: React.FC = () => {
       {loading && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-5 bg-white bg-opacity-90 rounded-lg shadow-lg z-10">
           <div className="w-10 h-10 border-4 border-gray-200 border-t-green-700 rounded-full animate-spin mb-3"></div>
-          <p>Загрузка карты и поиск пунктов переработки...</p>
+          <p>Загрузка...</p>
         </div>
       )}
       
