@@ -5,7 +5,7 @@ import { scrollToSection } from "../utils/scrollHelper";
 function Header() {
   return (
     <>
-      <div className="flex flex-row items-center justify-between bg-gradient-to-r from-white to-green-50 backdrop-blur-sm w-full p-6 sticky top-0 z-50 shadow-sm">
+      <div className="z-1001 flex flex-row items-center justify-between bg-gradient-to-r from-white to-green-50 backdrop-blur-sm w-full p-6 sticky top-0 shadow-sm">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
