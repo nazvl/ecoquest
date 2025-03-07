@@ -208,7 +208,7 @@ function Quiz() {
                             {score < questions.length / 2 ? (
                                 <div className="text-center">
                                     <p className="text-lg text-red-600 mb-3">Узнайте больше о защите окружающей среды и попробуйте снова!</p>
-                                    <p><a href="#" onClick={() => scrollToSection('reccomendations')} className='text-blue-500 underline hover:text-blue-700 transition-colors'>Ознакомиться с советами</a></p>
+                                    <p><span href="reccomendations" onClick={() => scrollToSection('reccomendations')} className='text-blue-500 underline hover:text-blue-700 transition-colors cursor-pointer'>Ознакомиться с советами</span></p>
                                 </div>
                             ) : (
                                 <p className="text-lg text-green-600 text-center">
