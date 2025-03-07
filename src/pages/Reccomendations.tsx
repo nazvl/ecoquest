@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const Recommendations: React.FC = () => {
   const tips = [
     {
@@ -155,8 +155,22 @@ const Recommendations: React.FC = () => {
   ];
 
   return (
-    <div
-      className="w-full bg-gradient-to-b from-white via-green-50 to-green-100 py-8 pb- px-4"
+  <motion.div
+      initial={{ opacity: 0, backgroundPosition: "100% 0" }}
+      animate={{
+        opacity: 1,
+        backgroundPosition: "0% 100%", // Плавное изменение фона
+      }}
+      transition={{
+        duration: 1, // Плавность перехода
+        ease: "easeInOut", // Плавность анимации
+      }}
+      whileInView={{
+        opacity: 1,
+        backgroundPosition: "0% 100%", // Сдвигаем градиент в нужное положение
+      }}
+      viewport={{ once: true, amount: 0.5 }} // Анимация срабатывает, когда 50% элемента видно
+      className="w-full py-8 px-4 bg-gradient-to-b from-white via-transparent to-emerald-900 bg-[length:200%_200%] bg-no-repeat"
       id="reccomendations"
     >
       <div className="bg-white p-6 rounded-lg w-full max-w-7xl mx-auto">
@@ -202,7 +216,7 @@ const Recommendations: React.FC = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
