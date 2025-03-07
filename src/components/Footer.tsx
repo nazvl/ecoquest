@@ -14,10 +14,10 @@ function Footer() {
         <div className="flex-1 min-w-[250px] mb-6">
           <h4 className="text-xl mb-4 text-emerald-300">Быстрые ссылки</h4>
           <ul className="list-none p-0">
-            <li className="mb-2"><span  className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Home</span></li>
-            <li className="mb-2"><span  className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">About</span></li>
-            <li className="mb-2"><span  className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Quests</span></li>
-            <li className="mb-2"><span  className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Contact</span></li>
+            <li className="mb-2"><span onClick={() => scrollToSection('main')} className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Начало</span></li>
+            <li className="mb-2"><span onClick={() => scrollToSection('quiz')} className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Квиз</span></li>
+            <li className="mb-2"><span onClick={() => scrollToSection('map')} className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Карта переработки</span></li>
+            <li className="mb-2"><span onClick={() => scrollToSection('reccomendations')} className="text-gray-200 no-underline hover:text-emerald-300 transition-colors cursor-pointer">Рекомендации</span></li>
           </ul>
         </div>
         
