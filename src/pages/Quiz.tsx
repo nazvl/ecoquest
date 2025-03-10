@@ -195,6 +195,7 @@ function Quiz() {
 
       if (nextQuestionIndex >= questions.length) {
         setQuizCompleted(true);
+        setSelectedAnswer(null);
       } else {
         setCurrentQuestionIndex(nextQuestionIndex);
         setSelectedAnswer(null);
