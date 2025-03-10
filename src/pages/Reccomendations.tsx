@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-const Recommendations: React.FC = () => {
+
+const Recommendations = () => {
   const tips = [
     {
       category: "Энергосбережение",
