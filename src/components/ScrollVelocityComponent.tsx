@@ -127,7 +127,7 @@ const ScrollVelocityComponent = ({
     >
       <div
         ref={textContainerRef}
-        className="whitespace-nowrap text-2xl font-semibold text-primary flex"
+        className="whitespace-nowrap text-xl md:text-2xl font-semibold text-primary flex"
         style={{ transform: `translateX(${offset}px)` }} // Применяем смещение к тексту
       >
         {/* Отображаем несколько копий текста для непрерывной прокрутки */}
