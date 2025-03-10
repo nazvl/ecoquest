@@ -6,7 +6,7 @@ import Recommendations from "./pages/Reccomendations.tsx";
 import Footer from "./components/Footer.tsx";
 import InfoSection from "./pages/InfoSection.tsx";
 import ScrollVelocityComponent from "./components/ScrollVelocityComponent.tsx";
-
+import Calculator from "./pages/Calculator.tsx";
 import "./App.css";
 // import { motion } from "framer-motion";
 
@@ -27,6 +27,7 @@ function App() {
         speedMultiplier={1.2}
       />
       <Recommendations />
+      <Calculator/>
       <Footer />
     </>
   );
