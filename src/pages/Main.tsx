@@ -11,7 +11,7 @@ export default function Main() {
         initial={{ opacity: 0 }}
         transition={{ duration: 2 }}
         id="main"
-        className="quiz-main w-full min-h-[90vh] bg-gradient-to-b from-green-100 to-green-50 flex flex-col md:flex-row gap-6 md:gap-10 items-center justify-center py-12 px-4 md:px-8"
+        className="quiz-main w-full min-h-[90vh] bg-gradient-to-b from-green-100 to-green-50 flex flex-col sm:py-8 md:flex-row gap-6 md:gap-10 items-center justify-center py-8 px-4 md:px-8"
       >
         <div className="text-center md:text-left max-w-lg">
           <motion.h1

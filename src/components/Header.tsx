@@ -1,7 +1,7 @@
 import leafImage from "../assets/leaf-svgrepo-com.svg";
 import { motion } from "framer-motion";
 import { scrollToSection } from "../utils/scrollHelper";
-
+import Burger from "./BurgerButton";
 function Header() {
   return (
     <>
@@ -29,6 +29,7 @@ function Header() {
           </div>
         </motion.div>
         <nav className="hidden md:flex">
+          
           <motion.ul
             initial={{ x: 20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -53,6 +54,7 @@ function Header() {
             </motion.li>
           </motion.ul>
         </nav>
+        <Burger />
       </div>
     </>
   );
