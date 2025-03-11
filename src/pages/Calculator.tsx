@@ -2,14 +2,22 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { scrollToSection } from "../utils/scrollHelper";
 
-
 const Calculator = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [score, setScore] = useState(0);
   const [testCompleted, setTestCompleted] = useState(false);
+  interface Answer {
+    text: string;
+    co2PerMonth: number;
+  }
+  interface Question {
+    id:number;
+    question:string;
+    answers: Answer[];
+  }
 
   // вопросы с выделением количества углеродного следа в кг в месяц
-  const questions = [
+  const questions: Question[] = [
     {
       id: 1,
       question: "Как вы обычно добираетесь до работы/учебы?",
@@ -115,10 +123,8 @@ const Calculator = () => {
     setScore(score + answer);
     if (currentStep >= questions.length - 1) {
       setTestCompleted(true);
-      console.log("test completed");
     } else {
       setCurrentStep(currentStep + 1);
-      console.log("CS: ", currentStep, "| answer: ", answer);
     }
   }
 
@@ -155,7 +161,7 @@ const Calculator = () => {
             <h2 className="text-2xl text-green-800 font-bold mb-8">
               {questions[currentStep].question}
             </h2>
-            
+
             <div className="mb-4 flex justify-between items-center">
               <span className="text-sm font-medium text-gray-500">
                 Вопрос {currentStep + 1} из {questions.length}
@@ -183,27 +189,48 @@ const Calculator = () => {
             </div>
           </div>
         ) : (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="bg-white p-8 rounded-2xl shadow-xl max-w-2xl w-full border border-green-100"
           >
             <div className="flex justify-center mb-6">
-              <div className={`w-24 h-24 rounded-full flex items-center justify-center border-4 ${score > 1000 ? "bg-red-100 border-red-500" : "bg-green-100 border-green-500"}`}>
-                <span className={`text-2xl font-bold ${score > 1000 ? "text-red-700" : "text-green-700"}`}>{score}</span>
+              <div
+                className={`w-24 h-24 rounded-full flex items-center justify-center border-4 ${
+                  score > 1000
+                    ? "bg-red-100 border-red-500"
+                    : "bg-green-100 border-green-500"
+                }`}
+              >
+                <span
+                  className={`text-2xl font-bold ${
+                    score > 1000 ? "text-red-700" : "text-green-700"
+                  }`}
+                >
+                  {score}
+                </span>
               </div>
             </div>
-            
+
             <h2 className="text-3xl text-white bg-emerald-700 p-6 rounded-xl shadow-md mb-6 w-full text-center">
               Ваш углеродный след составляет:{" "}
               <span className="font-bold">{score} кг CO₂/месяц</span>
             </h2>
-            
-            <p className={`text-lg py-4 ${score > 1000 ? "text-red-500" : "text-green-700"}`}>
+
+            <p
+              className={`text-lg py-4 ${
+                score > 1000 ? "text-red-500" : "text-green-700"
+              }`}
+            >
               {calculateResult(score)}
             </p>
-            <p onClick={() => scrollToSection('reccomendations')} className="text-blue-300 cursor-pointer">Ознакомиться с рекомендациями по снижению</p>
+            <p
+              onClick={() => scrollToSection("reccomendations")}
+              className="text-blue-300 cursor-pointer"
+            >
+              Ознакомиться с рекомендациями по снижению
+            </p>
 
             <button
               onClick={() => {

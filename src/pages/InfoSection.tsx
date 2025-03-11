@@ -1,8 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-const InfoSection: React.FC = () => {
-  const facts = [
+interface Fact {
+  stat: string;
+  description: string;
+}
+
+const InfoSection = () => {
+  const facts: Fact[] = [
     {
       stat: "8 млн тонн",
       description: "пластика попадает в океаны ежегодно",

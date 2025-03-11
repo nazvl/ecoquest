@@ -27,7 +27,7 @@ function App() {
         speedMultiplier={1.2}
       />
       <Recommendations />
-      <Calculator/>
+      <Calculator />
       <Footer />
     </>
   );
